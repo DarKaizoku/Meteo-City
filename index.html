@@ -30,20 +30,38 @@
             </div>
             <div class="col">
             </div>
-            <div id="resultat" class="testA">
-                <br>Zone affichage resultat recherche = Nom de la Commune !!<br>
+            <div id="nomVille" class="text-center" >
+                <br>Ici, s'affichera votre Commune !!<br>
+                <br>
             </div>
             <div class="container text-center" id="">
                 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
                 <div class="row">
-                    <div id="zonePhotoTemp" class="col-md-8 testB1">
-                        <br>Zone photo et temperature à droite<br>
-                        <img src="./images/favicon.svg" id="image-resultat" title="image-meteo">
+                    <div class="col-md-8">
+                        <div class="card">
+                            <img src="./images/favicon.svg" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"></h5>
+                                <p id="temp" class="card-text">Some quick example text to build on the card title and
+                                    make up the
+                                    bulk of the card's content.</p>
+                            </div>
+                            <ul class="list-group list-group-flush">
+                                <li class="list-group-item" id="tempMin" style="color: blue ;">Température Minimale</li>
+                                <li class="list-group-item" id="tempMax" style="color: red ;">Température Maximale</li>
+                            </ul>
+                        </div>
                     </div>
-                    <div id="ventHumidite" class="col-md-4 testB2">
-                        <br>zone vent + humidité, k'un en dessous de l'autre ou eessai autre !!<br>
+                    <div class="col-md-4 testB2"><br>Humidité de l'air
+                        <span id="humidity"></span><br>
+                        <!-- <div class="progress container-sm">
+                            <div id="humidite" class="progress-bar w-75" role="progressbar" aria-label="Basic example"
+                                aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">0%</div> -->
+
+                            <span id="vent-vitesse"></span><br>
+                            <span id="vent-direction"></span>
+                        </div>
                     </div>
-                </div>
     </main>
 </body>
 
