@@ -8,17 +8,19 @@ const tempMax = document.getElementById('tempMax');
 const humidity = document.getElementById('humidity');
 const ventVitess = document.getElementById('vent-vitesse');
 const ventSens = document.getElementById('vent-direction');
+const refIcon = document.getElementById('imgMeteo');
 
 const KELVIN = 273.15;
 
 
 
-btn.addEventListener('click', () => {
+btn.addEventListener('click', event => {
+    event.preventDefault();
     let textInput = input.value;
     return fctCoord(textInput);
 });
 
-form.addEventListener('submit', (event) => {
+form.addEventListener('submit', event => {
     event.preventDefault();
     let textInput = input.value;
     return fctCoord(textInput);
@@ -28,7 +30,7 @@ form.addEventListener('submit', (event) => {
 function fctCoord(ville) {
     fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ville},FR&limit=1&appid=147cfa8444d4c4443f5fe7207c42d9bb`) // fletch accepte string en entrée !!
         .then((response) => response.json())
-        .then((data) => weatherMaster(data[0].lat, data[0].lon))
+        .then((data) => weatherMaster(data[0].lat,data[0].lon))
         .catch((error) => { console.log(error) })
 };
 
@@ -51,6 +53,7 @@ function affMeteo(data) {
     let temP_min = (data.main.temp_min - KELVIN).toFixed(2);
     let temP_max = (data.main.temp_max - KELVIN).toFixed(2);
     let vitesseKMH = (data.wind.speed * 1.609344).toFixed(2);
+    let iconRef = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
     
     girouette(data.wind.deg);
 
@@ -61,8 +64,10 @@ function affMeteo(data) {
     humidity.textContent = ` est de ${data.main.humidity}%`;
     ventVitess.textContent = `La vitesse du vent est de ${vitesseKMH}Km/h`;
     ventSens.textContent = `La direction du vent est : ${varSwitch}`;
+    refIcon.setAttribute("src",iconRef);
     console.log(varSwitch);
     console.log(girouette(55));
+    console.log(iconRef);
 
     console.log(data);
 
@@ -71,9 +76,9 @@ let varSwitch = "";
 function girouette(nb) {
     x=parseInt(nb);
     switch (true) {
-        case x == 0:return varSwitch = "N(nord)";
+        case x == 0: return varSwitch = "N(nord)";
             
-        case  x<45:return varSwitch = "NNE(nord - nord - est)";
+        case  x<45: return varSwitch = "NNE(nord - nord - est)";
             
         case x==45: return varSwitch = "NE(nord - est)";
             
