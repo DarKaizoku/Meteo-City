@@ -14,13 +14,17 @@
     <script type="text/javascript" src="./script.js" defer></script>
 </head>
 
-<body>
+<body class="bg-success p-2 text-dark bg-opacity-50">
+<!-- w-100 permet d etendre une image sur le body complet -->
     <main class="container text-center">
         <div class="row justify-content-md-center">
             <div class="col">
             </div>
             <div class="col-6">
-                <h1>The Meteo</h1>
+                <button type="button" class="btn btn-primary">
+                    <h1 class="display-1">The Meteo</h1>
+                    <span class="badge text-bg-secondary"><h5 id="sstitre"  class="display-5">Votre Ville</h3></span>
+                </button>
                 <br><br>
                 <form id="input-form">
                     <input id="input" autofocus type="text" class="form-control form-control-lg" type="text"
@@ -30,19 +34,18 @@
             </div>
             <div class="col">
             </div>
-            <div id="nomVille" class="text-center" >
-                <br>Ici, s'affichera votre Commune !!<br>
+            <div>
                 <br>
             </div>
             <div class="container text-center" id="">
                 <!-- Stack the columns on mobile by making one full-width and the other half-width -->
                 <div class="row">
                     <div class="col-md-8">
-                        <div class="card">
+                        <div class="card bg-light">
                             <img id="imgMeteo" src="images/exclamation.svg" class="w-50 mx-auto" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"></h5>
-                                <p id="temp" class="card-text">Les températures seront indiquées ici </p>
+                                <p id="temp" class="card-text">Les températures seront indiquées ici</p>
                             </div>
                             <ul class="list-group list-group-flush">
                                 <li class="list-group-item" id="tempMin" style="color: blue ;">Température Minimale</li>
@@ -50,16 +53,22 @@
                             </ul>
                         </div>
                     </div>
-                    <div class="col-md-4 testB2"><br>Humidité de l'air
-                        <span id="humidity"></span><br>
+                    <div class="container col-md-4 bg-light"><br>
+                        <div id="humidity"
+                            class="p-3 bg-info bg-opacity-10 border border-info rounded-start rounded-end">Humidité de
+                            l'air</div><br>
                         <!-- <div class="progress container-sm">
                             <div id="humidite" class="progress-bar w-75" role="progressbar" aria-label="Basic example"
                                 aria-valuenow="75" aria-valuemin="0" aria-valuemax="100">0%</div> -->
-                            <span id="vent-vitesse">Vitesse du vent</span><br>
-                            <span id="vent-direction">Direction du vent</span>
-                        </div>
+                        <div id="vent-vitesse"
+                            class="p-3 bg-info bg-opacity-10 border border-info rounded-start rounded-end">Vitesse du
+                            vent</div><br>
+                        <div id="vent-direction"
+                            class="p-3 bg-info bg-opacity-10 border border-info rounded-start rounded-end">Direction du
+                            vent</div>
                     </div>
+                </div>
     </main>
 </body>
-
+<div id="fog"></div>
 </html>
