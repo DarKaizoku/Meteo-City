@@ -28,7 +28,7 @@ form.addEventListener('submit', event => {
 
 //fct qui avec le nom de la ville et le code pays(FR) permet d'avoir sa position gps, via API !!
 function fctCoord(ville) {
-    fetch(`http://api.openweathermap.org/geo/1.0/direct?q=${ville},FR&limit=1&appid=147cfa8444d4c4443f5fe7207c42d9bb`) // fletch accepte string en entrée !! si direct? par weather? !!
+    fetch(`https://api.openweathermap.org/geo/1.0/direct?q=${ville},FR&limit=1&appid=147cfa8444d4c4443f5fe7207c42d9bb`) // fletch accepte string en entrée !! si direct? par weather? !!
         .then((response) => response.json())
         .then((data) => weatherMaster(data[0].lat, data[0].lon))
         .catch((error) => { console.log(error) })
@@ -53,7 +53,7 @@ function affMeteo(data) {
     let temP_min = (data.main.temp_min - KELVIN).toFixed(2);
     let temP_max = (data.main.temp_max - KELVIN).toFixed(2);
     let vitesseKMH = (data.wind.speed * 1.609344).toFixed(2);
-    let iconRef = `http://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
+    let iconRef = `https://openweathermap.org/img/wn/${data.weather[0].icon}@2x.png`;
 
     girouette(data.wind.deg);
 
